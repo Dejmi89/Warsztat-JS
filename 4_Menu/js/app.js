@@ -5,13 +5,29 @@
 document.addEventListener('DOMContentLoaded', function(){
 
     var listElements = document.querySelector('.nav ul').children;
-    var elements =[];
 
-    for (var i = 0; i<listElements.length; i++){
-        elements.push(listElements[i].innerText);
+
+    for (var i = 0; i < listElements.length; i++){
+        listElements[i].addEventListener('mouseover', function(){
+            var hiddenList = this.querySelector('ul');
+            if ( hiddenList !== null){
+                hiddenList.style.display = "inline-block";
+            }
+
+        })
+
     }
-    console.log(elements);
 
+
+    for (var i = 0; i < listElements.length; i++){
+        listElements[i].addEventListener('mouseout', function(){
+            var hiddenList = this.querySelector('ul');
+            if ( hiddenList !== null) {
+                hiddenList.style.display = "none";
+            }
+        })
+
+    }
 
 
 })
